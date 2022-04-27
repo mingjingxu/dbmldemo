@@ -1,0 +1,18 @@
+// 用户表
+table tc_user{
+    id bigint(20) [note:'用户的自增Id',pk,increment]
+    phone_number varchar(50) [note:'用户的手机']
+    create_time datetime(6) [note:'创建时间']
+    update_time datetime(6) [note:'更新时间']
+}
+
+// 用户登录令牌表
+table tc_access_token{
+    id bigint(20) [note:'访问令牌的自增Id',pk,increment]
+    user_id bigint(20) [note:'关联的用户Id']
+    access_token varchar(100) [note:'访问令牌']
+    max_age bigint(20) [note:'访问令牌的有效时长，以毫秒为单位']
+    expire_date datetime [note:'过期时间']
+    create_time datetime(6) [note:'创建时间']
+    update_time datetime(6) [note:'更新时间']
+}
